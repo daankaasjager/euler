@@ -1,0 +1,5 @@
+project_name: euler-rag
+mode:
+  file_path: ./data/pdf_data/leerboek_kgt_1.pdf
+  chunk_size: 5000
+  language: nl

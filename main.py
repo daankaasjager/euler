@@ -3,16 +3,34 @@ import asyncio
 from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.openai import OpenAIProvider
-from parse_pdf import process_and_store_document
+from src.ingestion.pdf2md import parse_pdf
+from dotenv import load_dotenv
+import hydra
+from omegaconf import OmegaConf, DictConfig
+import logging
 
 
+load_dotenv()
+
+logger = logging.getLogger(__name__)
 
 # OpenAI Model
-ollama_gemma_model = OpenAIModel(model_name="bramvanroy/fietje-2b-instruct:f16", 
+ollama_gemma_model = OpenAIModel(model_name=os.getenv("NEDER_MODEL"), 
                                  provider=OpenAIProvider(base_url='http://localhost:11434/v1'))
 
-def run():
-    model = ollama_gemma_model
+
+@hydra.main(version_base=None, config_path='configs',
+            config_name='config')
+def run(cfg: DictConfig):
+    logger.info(OmegaConf.to_yaml(cfg))
+
+    if cfg.mode._name_ == "parse_pdf":
+        asyncio.run(parse_pdf(cfg))
+    elif cfg.mode._name_ == "serve_api":
+        serve_api(cfg)
+        
+        
+    """model = ollama_gemma_model
     agent = Agent(
         model=model,
         system_prompt="Je bent een expert in wiskunde op het vmbo-tl 4 niveau. Je helpt leerlingen op een informele en behulpzame wijze en legt elke stap uit."
@@ -22,12 +40,8 @@ def run():
         "Hoeveel bezoekers waren er in 2017? Gebruik de procententabel."
     )
     print(result.data)
-    print(result.usage())  
+    print(result.usage())  """
+
 
 if __name__ == "__main__":
-    parse = False
-    pdf_path = "./getal&ruimte/leerboek_kgt_1.pdf"
-    
-    if parse:
-        asyncio.run(process_and_store_document(pdf_path))
     run()

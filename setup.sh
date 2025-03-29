@@ -10,5 +10,4 @@ source $HOME/venvs/euler/bin/activate
 echo "venv, python is: $(which python)"
 
 # (D) Optional: Export environment variables your code might need
-pip install --force-reinstall --no-deps "pydantic<2.0"
-pip install "wandb<0.15.9"
+#pip install "wandb<0.15.9"

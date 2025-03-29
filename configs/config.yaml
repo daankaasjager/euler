@@ -1,0 +1,6 @@
+defaults:
+  - _self_
+  - /mode: parse_pdf
+
+# Any top-level shared config can go here too
+project_name: "euler-rag"

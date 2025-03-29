@@ -1,0 +1,6 @@
+[2025-03-29 15:24:30,832][__main__][INFO] - mode:
+  file_path: ./data/pdf_data/leerboek_kgt_1.pdf
+  chunk_size: 5000
+  language: nl
+project_name: euler-rag
+
