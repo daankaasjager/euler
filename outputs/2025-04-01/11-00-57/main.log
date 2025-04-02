@@ -1,0 +1,15 @@
+[2025-04-01 11:00:57,937][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: parse_and_store
+  pdf_path: ./data/pdf_data/split/
+  md_path: ./data/md_data/
+  chunk_size: 5000
+  language: nl
+  is_directory: true
+  semaphore: 5
+
+[2025-04-01 11:01:00,500][src.ingestion.pdf2md][INFO] - Found 4 PDF files in directory.
+[2025-04-01 11:01:00,502][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/statistiek_en_kans.md
+[2025-04-01 11:01:00,502][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/verbanden.md
+[2025-04-01 11:01:00,503][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/drie_dimensies,_afstanden_en_hoeken.md
+[2025-04-01 11:01:00,504][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/grafieken_en_vergelijkingen.md

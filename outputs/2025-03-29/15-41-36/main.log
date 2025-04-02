@@ -1,8 +1,0 @@
-[2025-03-29 15:41:36,266][__main__][INFO] - project_name: euler-rag
-mode:
-  _name_: parse_pdf
-  file_path: ./data/pdf_data/leerboek_kgt_1.pdf
-  chunk_size: 5000
-  language: nl
-
-[2025-03-29 15:41:36,735][httpx][INFO] - HTTP Request: POST https://cloud.eu.llamaindex.ai/api/parsing/upload "HTTP/1.1 413 Request Entity Too Large"

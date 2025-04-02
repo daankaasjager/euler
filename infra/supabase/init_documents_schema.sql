@@ -1,27 +1,25 @@
-"""adapted for documents from  https://github.com/coleam00/ottomator-agents/blob/main/crawl4AI-agent/site_pages.sql"""
-
 -- Enable pgvector for similarity search
 create extension if not exists vector;
 
--- Create the table for parsed textbook chunks
+-- Create the table for your processed textbook chunks
 create table documents (
     id bigserial primary key,
 
-    file_name varchar not null,               -- e.g. leerboek_kgt_1.pdf
-    page_number integer not null,             -- Actual page in the book
-    chapter varchar not null,                 -- Human-readable section name
-    content text not null,                    -- Markdown content of the chunk
+    -- from "ProcessedChunk"
+    file_name varchar not null,
+    chunk_nummer integer not null,
+    thema varchar not null,
+    omschrijving varchar not null,
+    inhoud text not null,
     metadata jsonb not null default '{}'::jsonb,
 
-    embedding vector(384),                    -- Assuming you're using MiniLM
+    embedding vector(384),  -- Assuming you're using a 384-dim embedding
     created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
--- Prevent duplicate pages from being inserted twice
-create unique index unique_page_per_file on documents (file_name, page_number);
-
--- Optional: Index for chapter filtering
-create index idx_documents_chapter on documents (chapter);
+-- Optional: Prevent duplicates of (file_name, chunk_nummer)
+create unique index unique_chunk_per_file
+on documents (file_name, chunk_nummer);
 
 -- Index for metadata filtering
 create index idx_documents_metadata on documents using gin (metadata);
@@ -29,17 +27,19 @@ create index idx_documents_metadata on documents using gin (metadata);
 -- Index for vector similarity search
 create index on documents using ivfflat (embedding vector_cosine_ops);
 
--- Similarity search function
+-- Example similarity search function, if you want it:
 create function match_documents (
   query_embedding vector(384),
   match_count int default 10,
-  filter jsonb DEFAULT '{}'::jsonb
-) returns table (
+  filter jsonb default '{}'::jsonb
+)
+returns table (
   id bigint,
   file_name varchar,
-  page_number integer,
-  chapter varchar,
-  content text,
+  chunk_nummer integer,
+  thema varchar,
+  omschrijving varchar,
+  inhoud text,
   metadata jsonb,
   similarity float
 )
@@ -49,26 +49,22 @@ as $$
 begin
   return query
   select
-    id,
-    file_name,
-    page_number,
-    chapter,
-    content,
-    metadata,
-    1 - (documents.embedding <=> query_embedding) as similarity
-  from documents
-  where metadata @> filter
-  order by documents.embedding <=> query_embedding
+    d.id,
+    d.file_name,
+    d.chunk_nummer,
+    d.thema,
+    d.omschrijving,
+    d.inhoud,
+    d.metadata,
+    1 - (d.embedding <=> query_embedding) as similarity
+  from documents d
+  where d.metadata @> filter
+  order by d.embedding <=> query_embedding
   limit match_count;
 end;
 $$;
 
--- Supabase row-level security setup
+-- Enable row-level security
 alter table documents enable row level security;
 
--- Allow public read access (adjust later for user-based filtering)
-create policy "Public Read Access"
-  on documents
-  for select
-  to public
-  using (true);
+

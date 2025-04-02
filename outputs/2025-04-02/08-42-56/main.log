@@ -1,0 +1,65 @@
+[2025-04-02 08:42:57,004][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: parse_and_store
+  pdf_path: ./data/pdf_data/split/
+  md_path: ./data/md_data/
+  chunk_size: 5000
+  language: nl
+  is_directory: true
+  semaphore: 5
+
+[2025-04-02 08:43:02,061][src.ingestion.pdf2md][INFO] - Found 4 PDF files in directory.
+[2025-04-02 08:43:02,061][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/statistiek_en_kans.md
+[2025-04-02 08:43:02,061][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/verbanden.md
+[2025-04-02 08:43:02,061][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/drie_dimensies,_afstanden_en_hoeken.md
+[2025-04-02 08:43:02,061][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/grafieken_en_vergelijkingen.md
+[2025-04-02 08:43:09,009][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cuda
+[2025-04-02 08:43:09,009][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+[2025-04-02 08:43:34,320][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,393][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,457][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,497][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,560][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,643][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,679][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,745][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,798][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,865][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,915][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:34,970][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:35,964][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,002][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,040][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,079][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,114][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,193][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,255][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,290][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,342][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,376][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,414][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,452][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,490][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,575][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,614][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,650][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,724][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,761][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,796][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,834][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,871][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,907][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:36,948][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,028][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,063][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,102][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,142][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,216][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,253][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,294][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,323][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,356][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,385][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,421][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,456][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"
+[2025-04-02 08:43:37,491][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 409 Conflict"

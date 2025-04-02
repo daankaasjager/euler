@@ -1,0 +1,255 @@
+[2025-04-01 12:22:16,278][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: parse_and_store
+  pdf_path: ./data/pdf_data/split/
+  md_path: ./data/md_data/
+  chunk_size: 5000
+  language: nl
+  is_directory: true
+  semaphore: 5
+
+[2025-04-01 12:22:18,947][src.ingestion.pdf2md][INFO] - Found 4 PDF files in directory.
+[2025-04-01 12:22:18,947][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/statistiek_en_kans.md
+[2025-04-01 12:22:18,947][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/verbanden.md
+[2025-04-01 12:22:18,948][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/drie_dimensies,_afstanden_en_hoeken.md
+[2025-04-01 12:22:18,948][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/grafieken_en_vergelijkingen.md
+[2025-04-01 12:22:21,664][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Meetkunde",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:22,049][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:22,088][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:22,110][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:23,765][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:24,151][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omsvrijving": "voorbeeld"
+}
+[2025-04-01 12:22:24,175][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:24,198][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Informatieverwerking, statistieken",
+ "omschrijfing": "anders"
+}
+[2025-04-01 12:22:26,044][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omscribing": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:26,437][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:26,865][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omscrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:26,914][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:28,436][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omschriding": "anders"
+}
+[2025-04-01 12:22:28,830][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:29,313][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Informatieverwerking, statistiek",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:29,353][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omshrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:30,608][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Meetkunde",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:31,128][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:31,579][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:31,600][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omschrijving": "anders"
+}
+[2025-04-01 12:22:33,064][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omsschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:33,480][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschriding": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:33,998][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijf": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:34,022][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omsschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:35,590][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Informatieverwerking, statistiek",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:35,675][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Informatieverwerking, statistiek",
+ "omspring": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:36,507][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Informatieverwerking, statistiek",
+ "omschription": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:36,546][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Informatieverwerking, statistiek",
+ "omschrijviing": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:37,822][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Meetkunde",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:37,892][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Meetkunde",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:38,881][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:38,905][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:40,299][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Informatieverwerking, statistiek",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:40,721][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omschriding": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:41,255][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Informatieverwerking, statistiek",
+ "omschrijving": "anders"
+}
+[2025-04-01 12:22:41,292][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:41,462][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:41,519][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:41,560][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:41,630][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:41,700][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:41,758][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:41,832][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:41,892][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:41,934][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:42,014][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:42,057][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:42,118][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:42,550][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Meetkunde",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:43,201][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, metsen en schatten",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:43,580][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omschrijving": "voorbeeld"
+}
+[2025-04-01 12:22:43,655][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Informatieverwerking, statistiek",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:44,782][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Meetkunde",
+ "omscheving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:45,615][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Meetkunde",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:45,992][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:46,460][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omscheiding": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:46,533][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:46,604][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:46,641][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:46,682][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:46,717][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:46,763][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:46,866][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:46,915][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:46,951][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:46,989][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:47,024][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:47,096][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:47,165][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:47,166][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Algebraïsche verbanden",
+ "omschrijving": "voorbeeld"
+}
+[2025-04-01 12:22:47,664][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Meetkunde",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:47,742][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omschrijving": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:47,809][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:47,879][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:47,917][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:47,971][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,029][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,066][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,138][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,177][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,223][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,264][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,322][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,322][src.ingestion.process_and_store_md][INFO] - Cleaned LLM content: {
+ "thema": "Rekenen, meten en schatten",
+ "omscheiding": "theorie en voorbeeld"
+}
+[2025-04-01 12:22:48,377][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,418][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,514][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,559][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,628][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,671][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,741][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,780][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,820][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,862][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,902][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 12:22:48,943][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"

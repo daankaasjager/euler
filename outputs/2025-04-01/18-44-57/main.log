@@ -1,0 +1,65 @@
+[2025-04-01 18:44:57,279][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: parse_and_store
+  pdf_path: ./data/pdf_data/split/
+  md_path: ./data/md_data/
+  chunk_size: 5000
+  language: nl
+  is_directory: true
+  semaphore: 5
+
+[2025-04-01 18:45:00,133][src.ingestion.pdf2md][INFO] - Found 4 PDF files in directory.
+[2025-04-01 18:45:00,133][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/statistiek_en_kans.md
+[2025-04-01 18:45:00,133][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/verbanden.md
+[2025-04-01 18:45:00,133][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/drie_dimensies,_afstanden_en_hoeken.md
+[2025-04-01 18:45:00,133][src.ingestion.pdf2md][INFO] - ✅ Skipping existing: ./data/md_data/grafieken_en_vergelijkingen.md
+[2025-04-01 18:45:02,841][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cuda
+[2025-04-01 18:45:02,842][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+[2025-04-01 18:45:28,345][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,392][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,436][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,487][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,536][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,582][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,624][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,668][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,714][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,756][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,805][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,849][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:28,891][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,453][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,504][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,542][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,582][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,627][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,667][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,708][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,755][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,803][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,886][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,938][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:30,978][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,063][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,113][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,153][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,197][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,238][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,277][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,315][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,367][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,406][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,446][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,495][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,537][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,575][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,630][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,695][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,735][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,775][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,817][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,862][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,905][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,953][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:31,995][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"
+[2025-04-01 18:45:32,044][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 401 Unauthorized"

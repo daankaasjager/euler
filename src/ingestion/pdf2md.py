@@ -1,9 +1,5 @@
 from llama_cloud_services import LlamaParse
 from llama_index.core import SimpleDirectoryReader
-import json
-import pypdf
-from supabase import create_client, Client
-import PyPDF2
 from dotenv import load_dotenv
 import os
 import nest_asyncio
@@ -13,6 +9,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+nest_asyncio.apply()
 # loads supabase, llamaparse and other keys
 load_dotenv()
 
@@ -24,59 +21,42 @@ llama_parser = LlamaParse(
     num_workers=4,  # if multiple files passed, split in `num_workers` API calls
     verbose=True,
     language="nl",  # Optionally you can define a language, default=en
-    base_url='https://cloud.eu.llamaindex.ai',
-    target_pages="2-10"
+    base_url='https://api.cloud.eu.llamaindex.ai'
 )
 
-nest_asyncio.apply()
-
-# 🔹 Book Section Mapping (Adjusted Page Numbers)
-CHAPTER_MAPPING = {
-    8: "Statistiek en kans",
-    66: "Verbanden",
-    114: "Drie dimensies, afstanden en hoeken",
-    174: "Grafieken en vergelijkingen",
-    226: "Einde"  # Stop processing after this section
-}
-
-async def parse_pdf(file_path: str):
+async def pdf2md(cfg):
     """
-    Parses a PDF document using LlamaParse and returns structured markdown output.
+    Parses a PDF or multiple pdf documents using LlamaParse and returns structured markdown output.
     """
-    try:
-        # use SimpleDirectoryReader to parse our file
-        file_extractor = {".pdf": llama_parser}
-        parsed_documents = SimpleDirectoryReader(input_files=['data/pdf_data/leerboek_kgt_1.pdf'], file_extractor=file_extractor).load_data()
-        return parsed_documents
-    except Exception as e:
-        logger.error(f"❌ Error parsing PDF with LlamaParse: {e}")
-        return None
+    parsed_md_paths = []
+    os.makedirs(cfg.mode.md_path, exist_ok=True)
+    pdf_files = (
+        [os.path.join(cfg.mode.pdf_path, f) for f in os.listdir(cfg.mode.pdf_path) if f.endswith(".pdf")]
+        if cfg.mode.is_directory else [cfg.mode.pdf_path]
+    )
+    logger.info(f"Found {len(pdf_files)} PDF files in directory.")
+    for pdf in pdf_files:
+        md_filename = os.path.splitext(os.path.basename(pdf))[0] + ".md"
+        md_path = os.path.join(cfg.mode.md_path, md_filename)
 
-def map_text_to_chapters(parsed_data: list) -> list:
-    """
-    Maps parsed document sections to corresponding book chapters using page numbers.
-    """
-    structured_data = []
-    current_chapter = "Onbekend"
+        if os.path.exists(md_path):
+            logger.info(f"✅ Skipping existing: {md_path}")
+            parsed_md_paths.append(md_path)
+            continue
 
-    for section in parsed_data:
-        page_number = section.metadata.get("page_number", 0)
+        try:
+            logger.info(f"🔍 Parsing {pdf} → {md_path}")
+            file_extractor = {".pdf": llama_parser}
+            parsed_docs = SimpleDirectoryReader(input_files=[pdf], file_extractor=file_extractor).load_data()
 
-        # Find correct chapter based on page number
-        for chapter_start, chapter_name in CHAPTER_MAPPING.items():
-            if page_number >= chapter_start:
-                current_chapter = chapter_name
-        
-        # Stop processing if we reach the "Einde" section
-        if current_chapter == "Einde":
-            print(f"🚀 Stopping processing at page {page_number} (Einde reached).")
-            break
+            with open(md_path, "w", encoding="utf-8") as f:
+                for doc in parsed_docs:
+                    f.write(doc.text.strip() + "\n\n")
 
-        structured_data.append({
-            "page_number": page_number,
-            "chapter": current_chapter,
-            "content": section.text
-        })
+            parsed_md_paths.append(md_path)
+        except Exception as e:
+            logger.error(f"❌ Failed to parse {pdf}: {e}")
 
-    return structured_data
+    return parsed_md_paths
+
 

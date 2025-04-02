@@ -1,0 +1,3 @@
+_name_: split_pdf
+input_file: "./data/pdf_data/leerboek_kgt_1.pdf"
+output_dir: "./data/pdf_data/split"
