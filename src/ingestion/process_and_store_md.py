@@ -4,8 +4,7 @@ import asyncio
 from src.utils.llms import call_ollama
 from typing import Dict, Any, List
 from dataclasses import dataclass
-from src.utils.embedding import get_embedding_model
-from torch import embedding
+from utils.embedding import get_embedding
 from dotenv import load_dotenv
 from supabase import create_client, Client
 import re
@@ -136,14 +135,6 @@ async def get_title_and_summary(chunk: str) -> Dict[str, str]:
         temperature=0.0
     )
     return json.loads(clean_code_fences(response))
-
-
-async def get_embedding(text: str) -> List[float]:
-    try:
-        return get_embedding_model().encode(text).tolist()
-    except Exception as e:
-        print(f"❌ Error generating embedding: {e}")
-        return [0.0] * 384  # assuming MiniLM-L12-v2
 
 async def process_chunk(chunk: str, chunk_nummer: int, file_name: str) -> ProcessedChunk:
     """Process a single chunk of text."""
