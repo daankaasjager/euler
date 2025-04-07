@@ -4,21 +4,20 @@ import asyncio
 from src.utils.llms import call_ollama
 from typing import Dict, Any, List
 from dataclasses import dataclass
-from utils.embedding import get_embedding
+from src.utils.embedding import get_embedding
 from dotenv import load_dotenv
-from supabase import create_client, Client
 import re
 import logging
+from src.utils.supabase_client import get_supabase_client
 
 """Code inspired from https://github.com/coleam00/ottomator-agents/blob/main/crawl4AI-agent/crawl_pydantic_ai_docs.py"""
+
+
+supabase = get_supabase_client()
 
 load_dotenv()
 logger = logging.getLogger(__name__)
 
-# Load Supabase
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 
 
 # Ollama Model for title/summaries

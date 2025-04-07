@@ -1,0 +1,5 @@
+[2025-04-03 21:10:07,701][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: test_agent
+  match_count: 5
+

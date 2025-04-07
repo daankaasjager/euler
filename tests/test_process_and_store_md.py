@@ -4,7 +4,8 @@ import asyncio
 from omegaconf import OmegaConf
 from dotenv import load_dotenv
 from src.ingestion.process_and_store_md import process_and_store_md
-from src.utils.embedding import get_embedding_model
+from src.utils.supabase_client import get_supabase_client
+
 
 load_dotenv()
 
@@ -27,11 +28,11 @@ def test_process_and_store_md_cleanup(test_markdown):
     asyncio.run(process_and_store_md(cfg, str(test_markdown)))
 
     # Optional: cleanup if you inserted into real Supabase
-    from supabase import create_client
     from dotenv import load_dotenv
     load_dotenv()
-    supabase = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_SERVICE_ROLE_KEY"))
 
+    supabase = get_supabase_client()
+    
     # Delete inserted chunks
     file_name = os.path.basename(test_markdown)
     deleted = supabase.table("documents").delete().eq("file_name", file_name).execute()

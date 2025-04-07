@@ -1,0 +1,6 @@
+[2025-04-02 11:56:11,834][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: test_agent
+  match_count: 5
+
+[2025-04-02 11:56:12,154][httpx][INFO] - HTTP Request: POST http://localhost:11434/chat/completions "HTTP/1.1 404 Not Found"

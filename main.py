@@ -1,13 +1,14 @@
 import os
 import asyncio
-from pydantic_ai import Agent
-from pydantic_ai.models.openai import OpenAIModel
-from pydantic_ai.providers.openai import OpenAIProvider
 from dotenv import load_dotenv
 import hydra
 from omegaconf import OmegaConf, DictConfig
 import logging
 from sentence_transformers import SentenceTransformer
+from pydantic_ai import Agent
+from pydantic_ai.models.openai import OpenAIModel
+from pydantic_ai.providers.openai import OpenAIProvider
+
 
 load_dotenv()
 
@@ -31,10 +32,14 @@ async def run(cfg: DictConfig):
             for _, parsed_md_path in enumerate(parsed_md_paths)
         ]
         await asyncio.gather(*tasks)
-        
+    elif cfg.mode._name_ == "test_agent":
+        from src.agent.rag import wiskunde_expert
+        agent = wiskunde_expert
+
+        result = await agent.run('Wat is een graaf?')
+        print(result.data)
+
     elif cfg.mode._name_ == "serve_api":
-        #from src.api import serve_api
-        #serve_api(cfg)
         pass
         
 

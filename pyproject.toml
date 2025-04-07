@@ -1,6 +1,7 @@
 [project]
 name = "euler"
 version = "0.1.0"
+authors = [{name = "Daan Kaasjager"}]
 
 [tool.setuptools]
 packages = ["src"]
