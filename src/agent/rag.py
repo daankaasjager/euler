@@ -48,7 +48,7 @@ wiskunde_expert = Agent(
 
 
 @wiskunde_expert.tool
-async def retrieve_relevant_documentation(ctx: RunContext[WiskundeRAGDeps], user_query: str, cfg) -> str:
+async def retrieve_relevant_documentation(ctx: RunContext[WiskundeRAGDeps], user_query: str) -> str:
     """
     Zoek relevante documentatie chunks gebaseerd op de RAG query.
     
@@ -68,7 +68,7 @@ async def retrieve_relevant_documentation(ctx: RunContext[WiskundeRAGDeps], user
             'match_documents',
             {
                 'query_embedding': query_embedding,
-                'match_count': cfg.mode.match_count,
+                'match_count': 5, # make this configurable later
                 'filter': {'subject': 'wiskunde'} # dit kan je nog aanpassen naar hoodstuk, onderwerp, moet allemaal wel eerst in de metadata
             }
         ).execute()
