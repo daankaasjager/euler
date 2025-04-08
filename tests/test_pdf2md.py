@@ -1,11 +1,10 @@
 import os
-import shutil
 import pytest
 from fpdf import FPDF
 from omegaconf import OmegaConf
 import asyncio
 
-from src.ingestion.pdf2md import pdf2md
+from app.ingestion.pdf2md import pdf2md
 
 @pytest.fixture
 def dummy_pdf(tmp_path):

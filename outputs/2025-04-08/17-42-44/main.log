@@ -1,0 +1,18 @@
+[2025-04-08 17:42:45,047][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: parse_and_store
+  pdf_path: ./data/pdf_data/test/
+  md_path: ./data/md_data
+  chunk_size: 5000
+  language: nl
+  is_directory: true
+  semaphore: 5
+  overwrite: true
+
+[2025-04-08 17:42:48,716][app.ingestion.pdf2md][INFO] - 📄 Found 1 PDF file(s).
+[2025-04-08 17:42:48,716][app.ingestion.pdf2md][INFO] - 🔍 Parsing ./data/pdf_data/test/bewerkingen.pdf → ./data/md_data/bewerkingen.md
+[2025-04-08 17:42:50,785][httpx][INFO] - HTTP Request: POST https://api.cloud.eu.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+[2025-04-08 17:42:52,002][httpx][INFO] - HTTP Request: GET https://api.cloud.eu.llamaindex.ai/api/parsing/job/bb0fa010-a169-4098-91e2-06be83a7f8c0 "HTTP/1.1 200 OK"
+[2025-04-08 17:42:54,222][httpx][INFO] - HTTP Request: GET https://api.cloud.eu.llamaindex.ai/api/parsing/job/bb0fa010-a169-4098-91e2-06be83a7f8c0 "HTTP/1.1 200 OK"
+[2025-04-08 17:42:54,966][httpx][INFO] - HTTP Request: GET https://api.cloud.eu.llamaindex.ai/api/parsing/job/bb0fa010-a169-4098-91e2-06be83a7f8c0/result/markdown "HTTP/1.1 200 OK"
+[2025-04-08 17:42:54,969][app.ingestion.pdf2md][INFO] - ✅ Written: ./data/md_data/bewerkingen.md

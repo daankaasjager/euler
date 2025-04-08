@@ -1,0 +1,5 @@
+[2025-04-08 16:45:19,670][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: delete_data
+  subject_filter: wiskunde
+

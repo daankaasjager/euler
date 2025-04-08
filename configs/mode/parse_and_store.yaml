@@ -1,7 +1,8 @@
 _name_: parse_and_store
-pdf_path: "./data/pdf_data/split/"
-md_path: "./data/md_data/"
+pdf_path: "./data/pdf_data/test/"
+md_path: "./data/md_data"
 chunk_size: 5000
 language: "nl"
 is_directory: True
 semaphore: 5 # how many chunks at a time for gpu usage
+overwrite: True

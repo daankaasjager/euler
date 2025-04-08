@@ -1,0 +1,15 @@
+[2025-04-08 16:55:43,520][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: parse_and_store
+  pdf_path: ./data/pdf_data/test/
+  md_path: ./data/md_data/
+  chunk_size: 5000
+  language: nl
+  is_directory: true
+  semaphore: 5
+
+[2025-04-08 16:56:44,055][app.ingestion.pdf2md][INFO] - Found 1 PDF files in directory.
+[2025-04-08 16:56:44,055][app.ingestion.pdf2md][INFO] - 🔍 Parsing ./data/pdf_data/test/bewerkingen.pdf → ./data/md_data/bewerkingen.md
+[2025-04-08 16:56:47,950][httpx][INFO] - HTTP Request: POST https://api.cloud.eu.llamaindex.ai/api/parsing/upload "HTTP/1.1 200 OK"
+[2025-04-08 16:56:49,131][httpx][INFO] - HTTP Request: GET https://api.cloud.eu.llamaindex.ai/api/parsing/job/390c3ffe-af8d-4ddb-8fea-8dc44b2445d3 "HTTP/1.1 200 OK"
+[2025-04-08 16:56:51,331][httpx][INFO] - HTTP Request: GET https://api.cloud.eu.llamaindex.ai/api/parsing/job/390c3ffe-af8d-4ddb-8fea-8dc44b2445d3 "HTTP/1.1 200 OK"
