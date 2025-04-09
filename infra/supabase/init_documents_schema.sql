@@ -10,6 +10,7 @@ create table documents (
     chunk_nummer integer not null,
     thema varchar not null,
     omschrijving varchar not null,
+    onderwerpen text not null,
     inhoud text not null,
     metadata jsonb not null default '{}'::jsonb,
 
@@ -39,6 +40,7 @@ returns table (
   chunk_nummer integer,
   thema varchar,
   omschrijving varchar,
+  onderwerpen text,
   inhoud text,
   metadata jsonb,
   similarity float
@@ -54,6 +56,7 @@ begin
     d.chunk_nummer,
     d.thema,
     d.omschrijving,
+    d.onderwerpen,
     d.inhoud,
     d.metadata,
     1 - (d.embedding <=> query_embedding) as similarity

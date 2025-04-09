@@ -32,14 +32,23 @@ wiskunde_expert = create_agent(
 @wiskunde_expert.tool
 async def retrieve_relevant_documentation(ctx: RunContext[WiskundeRAGDeps], user_query: str) -> str:
     """
-    Zoekt de meest relevante documentatiefragmenten voor een gegeven wiskundevraag met behulp van RAG.
+    Zoekt en retourneert de meest relevante documentatiefragmenten voor een gegeven wiskundevraag met behulp van RAG 
+    (Retrieval-Augmented Generation).
 
-    Parameters:
-        ctx: De Supabase-client die toegang heeft tot de documenten.
-        user_query: De wiskundige vraag van de gebruiker.
+        Parameters:
+            ctx (RunContext[WiskundeRAGDeps]): Het contextobject dat toegang biedt tot de Supabase-client en andere resources.
+            user_query (str): De specifieke wiskundige vraag of onderwerp van de gebruiker.
 
-    Retourneert:
-        Een samengestelde tekst met maximaal 5 relevante fragmenten uit de documenten.
+        Retourneert:
+            str: Een samengestelde tekst met maximaal 5 relevante fragmenten uit de documenten, gescheiden door een separator. Als geen 
+    relevant materiaal gevonden wordt, retourneert het 'Geen relevante documenten gevonden.'
+
+        Throws:
+            Exception: Retourneert een foutmelding als er problemen optreden bij het ophalen van de documentatie.
+        
+        Note:
+            De Supabase-client filtert de zoekresultaten op basis van onderwerp ('wiskunde'). Deze filter kan in de toekomst aangepast 
+    worden om specifieke hoofdstukken of subonderwerpen te beperken.
     """
     try:
         # Get the embedding for the query
@@ -79,64 +88,65 @@ async def retrieve_relevant_documentation(ctx: RunContext[WiskundeRAGDeps], user
 @wiskunde_expert.tool
 async def list_documentation_pages(ctx: RunContext[WiskundeRAGDeps]) -> List[str]:
     """
-    Retrieve a list of all available Wiskunde documentation pages.
-    
+    Haal een lijst op van alle unieke onderwerpen uit de wiskunde documentatie.
+
     Returns:
-        List[str]: List of unique file names for all documentation pages
+        List[str]: Lijst van unieke onderwerpen.
     """
     try:
         # Query Supabase for unique file_names where source is wiskunde documents
         result = ctx.deps.supabase.from_('documents') \
-            .select('file_name') \
+            .select('onderwerpen') \
             .eq('metadata->>subject', 'wiskunde') \
             .execute()
         
         if not result.data:
             return []
         
-        file_names = sorted(set(doc['file_name'] for doc in result.data))
-        return file_names
+        # Verzamel unieke onderwerpen
+        onderwerpen = set()
+        for doc in result.data:
+            if doc['onderwerpen']:
+                onderwerpen.update(doc['onderwerpen'])
+        
+        return sorted(onderwerpen)
         
     except Exception as e:
-        print(f"Error retrieving documentation pages: {e}")
+        print(f"Fout bij het ophalen van documentatie onderwerpen: {e}")
         return []
 
 
 @wiskunde_expert.tool
-async def get_page_content(ctx: RunContext[WiskundeRAGDeps], file_name: str) -> str:
+async def get_page_content(ctx: RunContext[WiskundeRAGDeps], onderwerp: str) -> str:
     """
-    Retrieve the full content of a specific documentation page by combining all its chunks.
-    
+    Haal de volledige inhoud op van documentatiepagina's die overeenkomen met een specifiek onderwerp.
+
     Args:
-        ctx: The context including the Supabase client
-        filename: The URL of the page to retrieve
-        
+        ctx: De context inclusief de Supabase client.
+        onderwerp: Het onderwerp waarvoor de inhoud wordt opgehaald.
+
     Returns:
-        str: The complete page content with all chunks combined in order
+        str: De gecombineerde inhoud van alle relevante documentatiepagina's.
     """
     try:
-        # Query Supabase for all chunks of this URL, ordered by chunk_number
+        # Query Supabase voor alle chunks die overeenkomen met het gegeven onderwerp
         result = ctx.deps.supabase.from_('documents') \
             .select('titel, inhoud, chunk_nummer') \
-            .eq('file_name', file_name) \
+            .contains('onderwerpen', [onderwerp]) \
             .eq('metadata->>subject', 'wiskunde') \
             .order('chunk_nummer') \
             .execute()
-        
+        print(f"result{result.data}")
         if not result.data:
-            return f"No content found for file_name: {file_name}"
-            
-        # Format the page with its title and all chunks
-        page_title = result.data[0]['titel'].split(' - ')[0]  # Get the main title
-        formatted_content = [f"# {page_title}\n"]
+            return f"Geen inhoud gevonden voor het onderwerp: {onderwerp}"
         
-        # Add each chunk's content
+        # Combineer de inhoud van alle relevante chunks
+        formatted_content = []
         for chunk in result.data:
-            formatted_content.append(chunk['inhoud'])
-            
-        # Join everything together
+            formatted_content.append(f"## {chunk['titel']}\n{chunk['inhoud']}")
+        
         return "\n\n".join(formatted_content)
         
     except Exception as e:
-        print(f"Error retrieving page content: {e}")
-        return f"Error retrieving page content: {str(e)}"
+        print(f"Fout bij het ophalen van pagina-inhoud: {e}")
+        return f"Fout bij het ophalen van pagina-inhoud: {str(e)}"

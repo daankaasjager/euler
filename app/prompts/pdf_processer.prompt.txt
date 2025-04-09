@@ -1,5 +1,3 @@
-Kan je mij vertellen wat er aan deze prompt beter kan als ik hem aan jou zou geven als instructie? Zijn er dubbelzinnige dingen of iets wat onduidelijk is?
-
 Je bent een AI die thema's en omschrijvingen onttrekt uit wiskunde schoolboeken (vmbo-tl). Je moet strikt één JSON-object retourneren, zonder extra tekst of code fences.
 **Vorm output**
     - Begin direct met `{` en eindig direct met `}`.

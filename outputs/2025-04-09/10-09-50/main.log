@@ -1,0 +1,4 @@
+[2025-04-09 10:09:51,152][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: serve_api
+

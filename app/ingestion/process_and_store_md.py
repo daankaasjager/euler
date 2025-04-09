@@ -30,6 +30,7 @@ class ProcessedChunk:
     chunk_nummer: int
     thema: str
     omschrijving: str
+    onderwerpen: str
     inhoud: str
     metadata: Dict[str, Any]
     embedding: List[float]
@@ -132,6 +133,7 @@ async def process_chunk(chunk: str, chunk_nummer: int, file_name: str) -> Proces
         chunk_nummer=chunk_nummer,
         thema=extracted.get("thema", "Geen thema"),
         omschrijving=extracted.get("omschrijving", "Geen omschrijving"),
+        onderwerpen = extracted.get("onderwerpen", "Geen onderwerpen"),
         inhoud=chunk,
         metadata=metadata,
         embedding=embedding
@@ -145,6 +147,7 @@ async def insert_chunk(chunk: ProcessedChunk):
             "chunk_nummer": chunk.chunk_nummer,
             "thema": chunk.thema,
             "omschrijving": chunk.omschrijving,
+            "onderwerpen": chunk.onderwerpen,
             "inhoud": chunk.inhoud,
             "metadata": chunk.metadata,
             "embedding": chunk.embedding
