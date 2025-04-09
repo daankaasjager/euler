@@ -1,0 +1,14 @@
+[2025-04-09 08:36:45,561][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: parse_and_store
+  pdf_path: ./data/pdf_data/test/
+  md_path: ./data/md_data
+  chunk_size: 5000
+  language: nl
+  is_directory: true
+  semaphore: 5
+  overwrite: false
+
+[2025-04-09 08:36:49,162][app.ingestion.pdf2md][INFO] - 📄 Found 1 PDF file(s).
+[2025-04-09 08:36:49,162][app.ingestion.pdf2md][INFO] - ⏭️  Skipping existing (no overwrite): ./data/md_data/bewerkingen.md
+[2025-04-09 08:36:56,051][app.ingestion.process_and_store_md][INFO] - Processing ./data/md_data/bewerkingen.md with semaphore 5

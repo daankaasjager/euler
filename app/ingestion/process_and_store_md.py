@@ -98,7 +98,8 @@ def clean_code_fences(raw_content: str) -> str:
 async def get_title_and_summary(chunk: str, temperature: float = 0.0) -> Dict[str, str]:
     """Extract JSON metadata using LLM with external prompt."""
     system_prompt = load_prompt('pdf_processer')
-        
+    print(f"System prompt: {system_prompt}")
+    print(f"Chunk: {chunk[:1000]}...")  
     response = await call_ollama(
         model=NEDER_MODEL,
         system_prompt=system_prompt,

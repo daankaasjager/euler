@@ -1,0 +1,17 @@
+[2025-04-09 08:41:12,883][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: parse_and_store
+  pdf_path: ./data/pdf_data/test/
+  md_path: ./data/md_data
+  chunk_size: 5000
+  language: nl
+  is_directory: true
+  semaphore: 5
+  overwrite: false
+
+[2025-04-09 08:41:17,237][app.ingestion.pdf2md][INFO] - 📄 Found 1 PDF file(s).
+[2025-04-09 08:41:17,238][app.ingestion.pdf2md][INFO] - ⏭️  Skipping existing (no overwrite): ./data/md_data/bewerkingen.md
+[2025-04-09 08:41:24,652][app.ingestion.process_and_store_md][INFO] - Processing ./data/md_data/bewerkingen.md with semaphore 5
+[2025-04-09 08:41:25,994][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cuda
+[2025-04-09 08:41:25,995][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+[2025-04-09 08:41:44,463][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents "HTTP/2 201 Created"

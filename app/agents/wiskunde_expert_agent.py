@@ -23,7 +23,7 @@ system_prompt = load_prompt("wiskunde_expert")
 
 wiskunde_expert = create_agent(
     model_name=NEDER_MODEL,
-    base_url=OLLAMA_URL,
+    base_url=OLLAMA_URL, # this maybe needs to be changed to include /v1
     system_prompt=system_prompt,
     deps_type=WiskundeRAGDeps
 )

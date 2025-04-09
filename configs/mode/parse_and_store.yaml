@@ -5,4 +5,4 @@ chunk_size: 5000
 language: "nl"
 is_directory: True
 semaphore: 5 # how many chunks at a time for gpu usage
-overwrite: True
+overwrite: False

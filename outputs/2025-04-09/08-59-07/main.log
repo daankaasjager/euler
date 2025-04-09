@@ -1,0 +1,12 @@
+[2025-04-09 08:59:07,705][__main__][INFO] - project_name: euler-rag
+mode:
+  _name_: test_agent
+  match_count: 5
+
+[2025-04-09 08:59:18,296][httpx][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-04-09 08:59:20,330][httpx][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+[2025-04-09 08:59:20,358][sentence_transformers.SentenceTransformer][INFO] - Use pytorch device_name: cuda
+[2025-04-09 08:59:20,358][sentence_transformers.SentenceTransformer][INFO] - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+[2025-04-09 08:59:23,922][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/rpc/match_documents "HTTP/2 200 OK"
+[2025-04-09 08:59:24,012][httpx][INFO] - HTTP Request: POST https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/rpc/match_documents "HTTP/2 200 OK"
+[2025-04-09 08:59:30,212][httpx][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"

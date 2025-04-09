@@ -40,7 +40,7 @@ async def run(cfg: DictConfig):
         from app.agents.wiskunde_expert_agent import wiskunde_expert, WiskundeRAGDeps
         agent = wiskunde_expert
         deps = WiskundeRAGDeps(supabase=get_supabase_client())
-        result = await agent.run('Wat is een graaf?', deps=deps)
+        result = await agent.run('Met welk ezelsbruggetje kan ik de rekenvolgorde onthouden?', deps=deps)
         print(result.data)
 
     elif cfg.mode._name_ == "serve_api":
