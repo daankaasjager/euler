@@ -1,4 +1,0 @@
-project_name: euler-rag
-mode:
-  _name_: test_agent
-  match_count: 5

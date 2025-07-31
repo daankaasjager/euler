@@ -1,6 +1,0 @@
-[2025-04-03 21:11:21,022][__main__][INFO] - project_name: euler-rag
-mode:
-  _name_: test_agent
-  match_count: 5
-
-[2025-04-03 21:11:21,393][httpx][INFO] - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 400 Bad Request"

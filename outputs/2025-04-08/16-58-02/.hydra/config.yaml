@@ -1,9 +1,0 @@
-project_name: euler-rag
-mode:
-  _name_: parse_and_store
-  pdf_path: ./data/pdf_data/test/
-  md_path: ./data/md_data/
-  chunk_size: 5000
-  language: nl
-  is_directory: true
-  semaphore: 5

@@ -1,7 +1,0 @@
-[2025-04-08 16:54:40,899][__main__][INFO] - project_name: euler-rag
-mode:
-  _name_: split_pdf
-  input_file: ./data/pdf_data/test_pdf.pdf
-  output_dir: ./data/pdf_data/test
-
-[2025-04-08 16:54:41,055][app.ingestion.split_pdf][INFO] - ✅ Saved PDF: ./data/pdf_data/test/bewerkingen.pdf
