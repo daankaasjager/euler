@@ -6,7 +6,7 @@
 
 ### Overview
 
-Euler is an intelligent tutoring system designed specifically for Dutch high school students. Leveraging advanced AI techniques and Retrieval-Augmented Generation (RAG), Euler transforms educational PDFs into structured knowledge chunks stored in a Supabase database, enabling a conversational agent that guides students through math concepts via an intuitive Streamlit interface.
+Euler is an intelligent tutoring system designed specifically for Dutch high school students. Leveraging Retrieval-Augmented Generation (RAG) and open-source LLMs, Euler transforms educational PDFs into structured knowledge chunks stored in a Supabase database, and loads a conversational agent that guides students through math concepts via a Streamlit interface.
 
 ### Key Features
 
