@@ -5,6 +5,10 @@ description = "Agentic math tutor"
 authors = ["Daan Kaasjager <daankaasjager@hotmail.com>"]
 readme = "README.md"
 
+packages = [
+  { include = "app" }
+]
+
 [tool.poetry.dependencies]
 python = "^3.11"
 aiohappyeyeballs = "2.6.1"
