@@ -9,6 +9,16 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      # Sensitive keys (stored as GitHub Secrets)
+      LLAMA_PARSE_KEY: ${{ secrets.LLAMA_PARSE_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      
+      SUPABASE_TEST: 1
+      NEDER_MODEL: 'qwen2.5:14b'
+      OLLAMA_URL: 'http://localhost:11434/v1'
+      MULTILINGUAL_EMBEDDING: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
