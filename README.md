@@ -1,76 +1,139 @@
-## Euler: AI-Powered Dutch High School Math Tutor
+# Euler: AI-Powered Dutch High School Math Tutor
 
-**Status**: 🚧 In Development
+### Status: In Development
 
 ---
 
-### Overview
+## Overview
+Euler is an intelligent tutoring system tailored for Dutch high school mathematics. It ingests PDFs (textbooks, worksheets), breaks them into curriculum-aligned “knowledge chunks,” stores embeddings in Supabase, and exposes a conversational Streamlit UI powered by Retrieval-Augmented Generation (RAG).
 
-Euler is an intelligent tutoring system designed specifically for Dutch high school students. Leveraging Retrieval-Augmented Generation (RAG) and open-source LLMs, Euler transforms educational PDFs into structured knowledge chunks stored in a Supabase database, and loads a conversational agent that guides students through math concepts via a Streamlit interface.
+Key components:
+- Ingestion & Chunking via app/ingestion
+- Vector store in Supabase
+- RAG Agent for context-aware Q&A
+- Streamlit frontend for chat & step-by-step walkthroughs
 
-### Key Features
 
-* **Automated Content Ingestion**: Upload PDF textbooks or worksheets; Euler parses, segments, and indexes content for efficient retrieval.
-* **Knowledge Chunking**: Breaks down complex topics into digestible, curriculum-aligned modules (definitions, theorems, worked examples).
-* **Supabase Integration**: Securely stores vector embeddings and metadata, ensuring scalable, real-time access.
-* **RAG-Powered Q\&A**: Combines retrieved context with generative responses for accurate, coherent tutoring.
-* **Interactive Streamlit UI**: User-friendly chat interface supporting follow-up queries and step-by-step explanations.
 
-### Architecture
+## Key Features
+- Automated PDF Ingestion:
+  Parse PDFs → segment content → generate embeddings
+- Structured Knowledge Chunks:
+  Definitions, theorems, examples aligned to Dutch math curriculum
+- Supabase Vector Store:
+  Secure, scalable similarity search
+- RAG-Powered Q&A:
+  Combines retrieved chunks with LLM generation for precise explanations
+- Interactive Streamlit UI:
+  Natural chat interface, follow-ups, optional practice problem generation
 
-1. **PDF Parser**: Converts source documents into raw text.
-2. **Chunker & Embedding**: Splits text into logical segments and computes vector embeddings.
-3. **Supabase Vector Store**: Indexes embeddings and maintains metadata for quick similarity searches.
-4. **RAG Agent**: Retrieves top-k relevant chunks and feeds them to a language model for response generation.
-5. **Frontend**: Streamlit app provides chat-based interaction with real-time visualization of referenced materials.
+---
 
-### Installation
+## Architecture
 
-1. **Clone the repository**
+1. PDF Parser (app/ingestion/pdf2md)
+2. Chunker & Embedding (app/ingestion/process_and_store_md)
+3. Supabase Vector Store (app/utils/supabase_client.py)
+4. RAG Agent (app/agents/wiskunde_expert_agent.py)
+5. Streamlit Frontend (frontend/streamlit_app.py)
 
-   ```bash
-   git clone https://github.com/your-org/euler-tutor.git
-   cd euler-tutor
+---
+
+## Setup
+
+1. Clone the repo
+
+   git clone https://github.com/daankaasjager/euler.git
+   cd euler
+
+2. Install dependencies with Poetry
+
+   if you don’t already have Poetry:
    ```
-2. **Create a virtual environment**
+   curl -sSL https://install.python-poetry.org | python3 -
+    ```
 
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
+   install & activate virtualenv
    ```
-3. **Install dependencies**
-
-   ```bash
-   pip install -r requirements.txt
+   poetry install
+   poetry shell
    ```
-4. **Configure environment variables**
 
-   ```bash
+3. Configure environment
+
    cp .env.example .env
-   # Edit .env with your Supabase URL, API key, and ollam urls
-   ```
 
-### Usage
+   Edit `.env` and fill in:
+   - SUPABASE_URL
+   - SUPABASE_SERVICE_KEY
+   - OLLAM_URL  (or your LLM endpoint)
+   - any other credentials
 
-1. **Ingest Documents**
+4. Explore workflows via Hydra https://hydra.cc/docs/intro/
 
-   ```bash
-   python ingest.py --source ./materials/math_textbook.pdf
-   ```
-2. **Start the Streamlit UI**
+   Current moodes:
+     split_pdf       # split PDF into chapters or pages
+     parse_and_store # parse → markdown → embed & upload
+     test_agent      # one-shot “Wat is een kwadraat?”
+     delete_data     # clear vector table
+     serve_api       # launch Streamlit UI
 
-   ```bash
-   streamlit run app.py
-   ```
-3. **Chat with Euler**
 
-   * Ask questions like: *"Leg de stelling van Pythagoras uit met een voorbeeld."*
-   * Request step-by-step solutions or ask for additional practice problems.
 
-### Roadmap
+## Usage Examples
+### Split pages 4–5 into a chunk named “bewerkingen”
+```
+python main.py mode=split_pdf page_range.start=4 page_range.end=5 page_range.name=bewerkingen
+```
 
-* [ ] Make the chat interaction a button interface
+### Parse & store all PDFs
+```
+python main.py mode=parse_and_store
+```
+### Test the RAG agent
+```
+python main.py mode=test_agent
+```
 
-### License
+### Serve the Streamlit UI
+```
+python main.py mode=serve_api
+```
+→ browse to http://localhost:8501
 
-This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
+
+## Dockerization
+
+Dockerfile (two-stage build):
+
+    # Stage 1: Builder
+    FROM python:3.11-slim AS builder
+    WORKDIR /app
+    RUN pip install poetry
+    COPY pyproject.toml poetry.lock ./
+    RUN poetry config virtualenvs.create false \
+     && poetry install --no-dev --no-root
+    COPY . .
+
+    # Stage 2: Runtime
+    FROM python:3.11-slim
+    WORKDIR /app
+    COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+    COPY --from=builder /app /app
+    EXPOSE 8501
+    ENTRYPOINT ["python", "main.py", "mode=serve_api"]
+
+Build & run:
+
+    docker build -t euler-tutor:latest .
+    docker run --env-file .env -p 8501:8501 euler-tutor:latest
+
+## Roadmap
+[ ] Button-based chat interface
+[ ] Authentication & role-based access
+[ ] CI/CD for automated ingestion → indexing
+[ ] More practice-problem generators
+
+
+License
+MIT License. See LICENSE for details.
