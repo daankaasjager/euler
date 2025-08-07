@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         env:
           PYTHONPATH: ${{ github.workspace }}
-        run: poetry install --no-interaction --no-ansi --no-root
+        run: poetry install --no-interaction --no-ansi
 
       - name: Cache Poetry venv
         uses: actions/cache@v3
