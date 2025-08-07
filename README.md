@@ -1,6 +1,6 @@
 # Euler: AI-Powered Dutch High School Math Tutor
 
-### Status: In Development
+### Status: In Development 🚧
 
 ---
 
