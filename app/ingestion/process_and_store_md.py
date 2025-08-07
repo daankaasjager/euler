@@ -1,15 +1,12 @@
 import os
 import json
 import asyncio
-from app.utils.llms import call_ollama
-from typing import Dict, Any, List
-from dataclasses import dataclass
-from app.utils.embedding import get_embedding
-from app.utils.prompt_loader import load_prompt
 from dotenv import load_dotenv
+from dataclasses import dataclass
+from app.utils import call_ollama, get_embedding, load_prompt, get_supabase_client
+from typing import Dict, Any, List
 import re
 import logging
-from app.utils.supabase_client import get_supabase_client
 
 """Code inspired from https://github.com/coleam00/ottomator-agents/blob/main/crawl4AI-agent/crawl_pydantic_ai_docs.py"""
 
@@ -30,7 +27,7 @@ class ProcessedChunk:
     chunk_nummer: int
     thema: str
     omschrijving: str
-    onderwerpen: str
+    onderwerpen: List[str]
     inhoud: str
     metadata: Dict[str, Any]
     embedding: List[float]

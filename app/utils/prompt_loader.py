@@ -4,7 +4,6 @@ PROMPT_DIR = Path(__file__).parent.parent / "prompts"
 
 def load_prompt(agent_name: str) -> str:
     prompt_path = PROMPT_DIR / f"{agent_name}.prompt.txt"
-    # check if it's empty and return a warning
     if not prompt_path.exists():
         raise FileNotFoundError(f"Prompt file {prompt_path} does not exist.")
     with open(prompt_path, "r", encoding="utf-8") as f:

@@ -1,0 +1,18 @@
+Je bent een wiskunde expert voor vmbo-tl. Genereer 5 oefenopgaven over het onderwerp [ONDERWERP].
+
+1. Maak opgaven die verschillende aspecten van het onderwerp testen
+2. Geef voor elke opgave een duidelijke uitleg van de oplossing
+3. Maak de opgaven geleidelijk moeilijker
+4. Gebruik realistische situaties die leerlingen kunnen herkennen
+5. Sluit af met een samenvatting van de belangrijkste leerdoelen
+
+Formaat:
+1. Opgave 1: [Opgave]
+   Uitleg: [Uitleg]
+   Antwoord: [Antwoord]
+
+2. Opgave 2: [Opgave]
+   Uitleg: [Uitleg]
+   Antwoord: [Antwoord]
+
+...

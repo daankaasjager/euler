@@ -4,7 +4,7 @@ from fpdf import FPDF
 from omegaconf import OmegaConf
 import asyncio
 
-from app.ingestion.pdf2md import pdf2md
+from app.ingestion import pdf2md
 
 @pytest.fixture
 def dummy_pdf(tmp_path):

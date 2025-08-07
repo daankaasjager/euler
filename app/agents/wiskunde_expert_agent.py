@@ -3,12 +3,14 @@ from dataclasses import dataclass
 from typing import List
 from supabase import Client
 from pydantic_ai import RunContext
+from dotenv import load_dotenv
 
-from app.utils.embedding import get_embedding
-from app.utils.supabase_client import get_supabase_client
+from app.utils import get_embedding, get_supabase_client, load_prompt
 from app.agents.base_agent import create_agent, BaseAgentDeps
-from app.utils.prompt_loader import load_prompt
 import os
+
+# Load environment variables
+load_dotenv()
 
 @dataclass
 class WiskundeRAGDeps(BaseAgentDeps):

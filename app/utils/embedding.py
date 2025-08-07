@@ -1,4 +1,3 @@
-# src/utils/embedding.py
 import os
 from sentence_transformers import SentenceTransformer
 from typing import List
@@ -17,4 +16,4 @@ async def get_embedding(text: str) -> List[float]:
         return get_embedding_model().encode(text).tolist()
     except Exception as e:
         print(f"❌ Error generating embedding: {e}")
-        return [0.0] * 384  # assuming MiniLM-L12-v2
+        return [0.0] * 384

@@ -25,17 +25,14 @@ def configure_logging():
         datefmt='%Y-%m-%d %H:%M:%S'
     )
 
-    # Create a file handler (without colors)
     file_handler = logging.FileHandler('app.log')
     file_handler.setFormatter(logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     ))
 
-    # Create a stream handler (with colors)
     stream_handler = logging.StreamHandler()
     stream_handler.setFormatter(colored_formatter)
 
-    # Configure the root logger with both handlers
     logging.basicConfig(
         level=logging.DEBUG,
         handlers=[file_handler, stream_handler]
@@ -45,12 +42,9 @@ def configure_logging():
     for level in ('debug', 'info', 'warning', 'error', 'exception', 'fatal', 'critical'):
         setattr(logger, level, getattr(logger, level))
 
-    # Set up an exception hook to log uncaught exceptions
     def exception_handler(exc_type, exc_value, exc_traceback):
         formatted_exception = ''.join(traceback.format_exception(exc_type, exc_value, exc_traceback))
-        # Print the exception in red to the console
         print(Fore.RED + formatted_exception + Style.RESET_ALL)
-        # Append the exception details to the log file
         with open('app.log', 'a') as log_file:
             log_file.write(formatted_exception)
 

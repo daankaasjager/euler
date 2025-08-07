@@ -2,10 +2,20 @@
 name = "euler"
 version = "0.1.0"
 authors = [{name = "Daan Kaasjager"}]
+description = "Euler project with ML model and Streamlit UI"
+requires-python = ">=3.8"
+
+[project.scripts]
+euler = "main:main"
 
 [tool.setuptools]
-packages = ["src"]
+packages = ["app"]
+
+[tool.setuptools.packages.find]
+where = ["app"]
 
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+

@@ -3,22 +3,14 @@ import sys
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 import streamlit as st
 import asyncio
-from typing import Literal, TypedDict
+from typing import Literal, TypedDict, List
 
 from dotenv import load_dotenv
 load_dotenv()
 
 from app.agents.wiskunde_expert_agent import wiskunde_expert, WiskundeRAGDeps
-from app.utils.supabase_client import get_supabase_client
+from app.utils import get_supabase_client
 
-from pydantic_ai.messages import (
-    ModelRequest, ModelResponse, TextPart, UserPromptPart,
-    ToolCallPart, ToolReturnPart
-)
-
-import os
-
-os.environ["STREAMLIT_SERVER_ENABLE_FILE_WATCHER"] = "false" #prevents pytorch internal registration mechanism with module path conflicts
 
 class ChatMessage(TypedDict):
     role: Literal['user', 'model']
@@ -26,77 +18,78 @@ class ChatMessage(TypedDict):
     content: str
 
 def display_message_part(part):
-    """
-    Display a single part of a message in the Streamlit UI.
-    Customize how you display system prompts, user prompts,
-    tool calls, tool returns, etc.
-    """
-    # system-prompt
-    if part.part_kind == 'system-prompt':
-        with st.chat_message("system"):
-            st.markdown(f"**System**: {part.content}")
-    # user-prompt
-    elif part.part_kind == 'user-prompt':
-        with st.chat_message("user"):
-            st.markdown(part.content)
-    # text
-    elif part.part_kind == 'text':
+    if part.part_kind == 'text':
         with st.chat_message("assistant"):
             st.markdown(part.content)
-    # tool-call
-    elif part.part_kind == 'tool-call':
-        with st.chat_message("assistant"):
-            st.markdown(f"**Tool Call**: {part.tool_name} with arguments {part.args}")
 
-async def run_agent_with_streaming(user_input: str):
+def get_subjects() -> List[str]:
+    """Get all unique subjects from Supabase."""
+    supabase = get_supabase_client()
+    response = supabase.table('documents').select('onderwerpen').execute()
+    subjects = set()
+    
+    for row in response.data:
+        if row.get('onderwerpen'):
+            onderwerpen = row['onderwerpen']
+            if isinstance(onderwerpen, str):
+                print(f"onderwerpen string: {onderwerpen}")
+                for subject in onderwerpen.split(', '):
+                    cleaned = subject.strip()
+                    if cleaned:
+                        subjects.add(cleaned)
+            elif isinstance(onderwerpen, list):
+                print(f"onderwerpen lijst: {onderwerpen}")
+                for subject in onderwerpen:
+                    cleaned = str(subject).strip()
+                    if cleaned:
+                        subjects.add(cleaned)
+            else: 
+                print(f"format is {type(onderwerpen)}")
+                print(f"onderwerpen type: {onderwerpen}")
+    return sorted(subjects)
+
+async def run_agent_with_streaming(prompt: str):
     deps = WiskundeRAGDeps(supabase=get_supabase_client())
+    async with wiskunde_expert.run_stream(prompt, deps=deps) as result:
+        full_response = []
+        async for chunk in result.stream_text():
+            full_response.append(chunk)
+        return "".join(full_response)
 
-    async with wiskunde_expert.run_stream(
-        user_input,
-        deps=deps,
-        message_history=st.session_state.messages[:-1], # heel gesprek tot nu toe als context
-    ) as result:
-        partial_text = ""
-        placeholder = st.empty()
+def main():
+    st.set_page_config(page_title="Wiskunde Expert", layout="centered")
+    st.title("Wiskunde Expert")
 
-        # Stream de text en toon deze in real-time in de UI
-        async for chunk in result.stream_text(delta=True):
-            partial_text += chunk
-            placeholder.markdown(partial_text)
-        filtered_messages = [
-            msg for msg in result.new_messages()
-            if not (
-                hasattr(msg, 'parts')
-                and any(part.part_kind == 'user-prompt' for part in msg.parts)
-            )
-        ]
-        st.session_state.messages.extend(filtered_messages)
-
-
-
-async def main():
-    st.set_page_config(page_title="Euler RAG Agent", layout="centered")
-    st.title("📘 Wiskunde VMBO-TL RAG Agent")
-
-    if "messages" not in st.session_state:
+    if 'messages' not in st.session_state:
         st.session_state.messages = []
 
-    for msg in st.session_state.messages:
-        if isinstance(msg, (ModelRequest, ModelResponse)):
-            for part in msg.parts:
-                display_message_part(part)
+    subjects = get_subjects()
+    
+    st.subheader("Selecteer een onderwerp")
+    selected_subject = st.selectbox("Kies een onderwerp", subjects, key='subject_select')
 
-    user_input = st.chat_input("Stel je wiskundevraag...")
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Geef meer uitleg"):
+            if st.session_state.subject_select:
+                prompt_path = Path("app/prompts/uitleg_prompt.txt")
+                prompt = prompt_path.read_text().replace("[ONDERWERP]", st.session_state.subject_select)
+                response = asyncio.run(run_agent_with_streaming(prompt))
+                st.session_state.messages.append({"role": "assistant", "content": response})
+                
+    
+    with col2:
+        if st.button("Genereer voorbeeld vragen"):
+            if st.session_state.subject_select:
+                prompt_path = Path("app/prompts/vragen_prompt.txt")
+                prompt = prompt_path.read_text().replace("[ONDERWERP]", st.session_state.subject_select)
+                response = asyncio.run(run_agent_with_streaming(prompt))
+                st.session_state.messages.append({"role": "assistant", "content": response})
 
-    if user_input:
-        st.session_state.messages.append(
-            ModelRequest(parts=[UserPromptPart(content=user_input)])
-        )
-        with st.chat_message("user"):
-            st.markdown(user_input)
 
-        with st.chat_message("assistant"):
-            await run_agent_with_streaming(user_input)
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()

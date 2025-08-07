@@ -1,6 +1,0 @@
-[2025-04-09 09:30:26,477][__main__][INFO] - project_name: euler-rag
-mode:
-  _name_: delete_data
-  subject_filter: wiskunde
-
-[2025-04-09 09:30:26,765][httpx][INFO] - HTTP Request: DELETE https://sqeksfwxqxcmkmvqryiw.supabase.co/rest/v1/documents?metadata-%3E%3Esubject=eq.wiskunde "HTTP/2 200 OK"

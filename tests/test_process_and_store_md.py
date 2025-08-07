@@ -3,7 +3,7 @@ import pytest
 import asyncio
 from omegaconf import OmegaConf
 from dotenv import load_dotenv
-from app.ingestion.process_and_store_md import process_and_store_md
+from app.ingestion import process_and_store_md
 from app.utils.supabase_client import get_supabase_client
 
 
